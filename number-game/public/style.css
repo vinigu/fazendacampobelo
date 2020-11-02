@@ -1,91 +1,44 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300');
-
-html, body {
+html,
+body {
   height: 100%;
-  width: 100%;
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  background-image: url("/splash.png");
-  background-color: #220052;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-section {
-  height: 100%;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -ms-flex-align: center;
   align-items: center;
-  max-width: 536px;
-  margin: auto;
-  position: relative;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
 }
 
-section:before {
-  content: "";
-  position: absolute;
-  background: url("/pyramid.png") no-repeat;
-  background-size: 100%;
+.form-signin {
   width: 100%;
-  height: 402px;
-  z-index: -1;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
 }
-
-.logo {
-  background: url("/logo.svg") no-repeat;
-  width: 36px;
-  height: 33px;
-  background-size: 100%;
-  margin-bottom: 35px;
-  opacity: 0;
-  animation: slideUp 1s cubic-bezier(0.19, 1, 0.30, 1) 1.3s forwards;
+.form-signin .checkbox {
+  font-weight: 400;
 }
-
-.title {
-  background: url("/title.svg") no-repeat;
-  width: 219px;
-  height: 36px;
-  background-size: 100%;
-  opacity: 0;
-  animation: slideUp 1s cubic-bezier(0.19, 1, 0.30, 1) 0.2s forwards;
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
 }
-
-.subtitle {
-  margin-top: 25px;
-  color: #BDB3CB;
-  font-size: 17px;
-  text-align: center;
-  letter-spacing: 0.5;
-  opacity: 0;
-  animation: slideUp 1s cubic-bezier(0.19, 1, 0.30, 1) 0.5s forwards;
+.form-signin .form-control:focus {
+  z-index: 2;
 }
-
-a {
-  color: inherit;
-  text-decoration: underline;
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
-
-p {
-  margin: 0.83rem 0;
-}
-
-@keyframes slideUp {
-  0% {
-    transform: translateY(40px);
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.2%;
-  }
-  100% {
-    opacity: 1;
-    transform: none;
-  }
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
