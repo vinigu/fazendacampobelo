@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cadastro Funcionário</title>
+	  {{ style('cadF') }}
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="title">
+      Cadastro Funcionário
+    </div>
+    <div class="form">
+       <div class="inputfield">
+          <label>Nome Completo</label>
+          <input type="text" class="input">
+       </div>  
+        <div class="inputfield">
+          <label>Data de Nascimento</label>
+          <input type="text" class="input">
+       </div> 
+       <div class="inputfield">
+        <label>Nome de Usuário</label>
+        <input type="text" class="input">
+     </div>  
+       <div class="inputfield">
+          <label>Senha</label>
+          <input type="password" class="input">
+       </div>  
+      <div class="inputfield">
+          <label>Confirme a Senha</label>
+          <input type="password" class="input">
+       </div> 
+        <div class="inputfield">
+          <label>Tipo de Usuário</label>
+          <div class="custom_select">
+            <select>
+              <option value="">Select</option>
+              <option value="adm">Administrador</option>
+              <option value="alteração">Alteração</option>
+              <option value="visualização">Visualização</option>
+            </select>
+          </div>
+       </div> 
+       <div class="inputfield">
+        <label>Setor</label>
+        <div class="custom_select">
+          <select>
+            <option value="">Select</option>
+            <option value="celeiro">Celeiro</option>
+            <option value="horta">Horta</option>
+            <option value="vendas">Vendas</option>
+          </select>
+        </div>
+     </div> 
+        <div class="inputfield">
+          <label>E-mail</label>
+          <input type="text" class="input">
+       </div> 
+      <div class="inputfield">
+          <label>Data de Admissão</label>
+          <input type="text" class="input">
+       </div> 
+      <div class="inputfield">
+          <label>Código do Funcionário</label>
+          <input type="text" class="input">
+       </div> 
+      <div class="inputfield">
+        <input type="submit" value="Cadastrar" class="btn">
+      </div>
+    </div>
+</div>	
+	
+</body>
+</html>
