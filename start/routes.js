@@ -20,4 +20,6 @@ Route.on('/').render('welcome')
 
 Route.on('/cadfunc').render('cad_func')
 
-//Route.any('/test', 'cad_func')
+Route.on('/cadocorrencia').render('cadocorrencia')
+
+Route.on('listocorrencia').render('listocorrencia')
