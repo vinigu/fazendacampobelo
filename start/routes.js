@@ -16,6 +16,8 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.any('/').render('welcome')
+Route.on('/').render('welcome')
 
-Route.any('/test', 'TesteController.index')
+Route.on('/cadfunc').render('cad_func')
+
+//Route.any('/test', 'cad_func')

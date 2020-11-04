@@ -16,6 +16,7 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
+Route.on('/').render('cad_func')
 Route.on('/cadfunc').render('cad_func')
   
 
