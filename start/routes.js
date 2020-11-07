@@ -23,3 +23,5 @@ Route.on('/cadfunc').render('cad_func')
 Route.on('/cadocorrencia').render('cadocorrencia')
 
 Route.on('listocorrencia').render('listocorrencia')
+
+Route.resource('status', 'TbStatusController').apiOnly();
