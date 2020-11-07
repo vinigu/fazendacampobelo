@@ -50,11 +50,11 @@ module.exports = {
     mysql: {
         client: 'mysql',
         connection: {
-            host: 'localhost',
+            host: 'unredeemable-paragr.000webhostapp.com',
             port: 3306,
-            user: 'root',
-            password: '',
-            database: 'mydb'
+            user: 'admin',
+            password: 'E>}wnmK-|-9wYDnY',
+            database: 'id15337217_projeto_integrado'
         },
         debug: true
     },
