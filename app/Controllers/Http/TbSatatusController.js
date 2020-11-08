@@ -18,7 +18,7 @@ class TbSatatusController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
-    const Status = use("App/Models/TbStatus");
+    const Status = use("app/Models/TbSatatus");
     const clientes = await Status.all();
     
     return clientes;
@@ -45,6 +45,8 @@ class TbSatatusController {
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
+    const Status = use("app/Models/TbSatatus");
+
     const data = request.only(["tp_status"]);
     
     const status = await Status.create(data);
