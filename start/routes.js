@@ -24,4 +24,8 @@ Route.on('/cadocorrencia').render('cadocorrencia')
 
 Route.on('listocorrencia').render('listocorrencia')
 
-Route.resource('status', 'TbSatatusController').apiOnly();
+Route.resource('statuses', 'TbSatatusController').apiOnly()
+
+Route.resource('status', 'StatusController').apiOnly()
+
+Route.post('/user', 'StatusController.store')

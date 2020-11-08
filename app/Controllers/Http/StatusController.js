@@ -1,16 +1,16 @@
 'use strict'
-
+const Status = use('App/Models/Status');
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
 /**
- * Resourceful controller for interacting with tbsatatuses
+ * Resourceful controller for interacting with statuses
  */
-class TbSatatusController {
+class StatusController {
   /**
-   * Show a list of all tbsatatuses.
-   * GET tbsatatuses
+   * Show a list of all statuses.
+   * GET statuses
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -18,15 +18,14 @@ class TbSatatusController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
-    const Status = use("app/Models/TbSatatus");
-    const clientes = await Status.all();
+    const status = await Status.all();
     
-    return clientes;
+    return status;
   }
 
   /**
-   * Render a form to be used for creating a new tbsatatus.
-   * GET tbsatatuses/create
+   * Render a form to be used for creating a new status.
+   * GET statuses/create
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -37,17 +36,15 @@ class TbSatatusController {
   }
 
   /**
-   * Create/save a new tbsatatus.
-   * POST tbsatatuses
+   * Create/save a new status.
+   * POST statuses
    *
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
-    const Status = use("app/Models/TbSatatus");
-
-    const data = request.only(["tp_status"]);
+    const data = request.only(["status"]);
     
     const status = await Status.create(data);
     
@@ -55,8 +52,8 @@ class TbSatatusController {
   }
 
   /**
-   * Display a single tbsatatus.
-   * GET tbsatatuses/:id
+   * Display a single status.
+   * GET statuses/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -67,8 +64,8 @@ class TbSatatusController {
   }
 
   /**
-   * Render a form to update an existing tbsatatus.
-   * GET tbsatatuses/:id/edit
+   * Render a form to update an existing status.
+   * GET statuses/:id/edit
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -79,35 +76,26 @@ class TbSatatusController {
   }
 
   /**
-   * Update tbsatatus details.
-   * PUT or PATCH tbsatatuses/:id
+   * Update status details.
+   * PUT or PATCH statuses/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
   async update ({ params, request, response }) {
-    const status = await Status.findOrFail(params.id);
-    const data = request.only(["tp_status"]);
-    
-    status.merge(data);
-    await status.save();
-    
-    return status
   }
 
   /**
-   * Delete a tbsatatus with id.
-   * DELETE tbsatatuses/:id
+   * Delete a status with id.
+   * DELETE statuses/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
   async destroy ({ params, request, response }) {
-    const status = await Status.findOrFail(params.id);
-    await status.delete();
   }
 }
 
-module.exports = TbSatatusController
+module.exports = StatusController
