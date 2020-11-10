@@ -20,6 +20,8 @@ Route.on('/').render('login')
 
 Route.on('/user').render('user')
 
+Route.resource('apiUser', 'UserController').apiOnly();
+
 Route.on('/cadfunc').render('cad_func')
 
 Route.on('/cadocorrencia').render('cadocorrencia')

@@ -53,8 +53,8 @@ module.exports = {
             host: 'localhost',
             port: 3306,
             user: 'root',
-            //password: 'ViniciusGustavo12!',
-            password: '',
+            password: 'ViniciusGustavo12!',
+            //password: '',
             database: 'mydb'
         },
         debug: true
@@ -70,6 +70,7 @@ module.exports = {
     | npm i --save pg
     |
     */
+
     pg: {
         client: 'pg',
         connection: {
