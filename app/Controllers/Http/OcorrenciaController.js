@@ -18,9 +18,11 @@ class OcorrenciaController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
-    const ocorrencia = await Ocorrencia.all();
-    
-    return ocorrencia;
+
+    const ocorrencia = await Ocorrencia.all()
+    return view.render('painel_principal', {
+      ocorrencias: ocorrencia.toJSON()
+    })
   }
 
   /**
