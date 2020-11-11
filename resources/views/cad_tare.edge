@@ -4,71 +4,52 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>Cadastro de Tarefa</title>
-Cadastro de Tarefa
+        <title>Cadastro de Tarefa</title>
      </head>
 
     <body class="container bg-primary">
-          <div class="col-9 p-2 mb-2">
-                <div class="p-2 border rounded bg-light">
-                    <div class="form-group">
-                        <label for="cmb_titulo">Titulo da Tarefa:</label>
-                           <input type="text" required class="form-control" id="tituloTarefa" placeholder="Digite um título para a tarefa...">
-                     </div>
-    <body class="container bg-primary">
-        <div class=" row align-items-start ">
-            <div class="col-12 p-3 mb-2">
-                    <div class="form-group">
-                        <label for="cmb_cadasTarefa">Setor da tarefa:</label>
-                        <select class="form-control" id="cmb_cadasTarefa">
-                            <option>Escolha um setor para a tarefa...</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-       <body class="container bg-primary">
-          <div class="col-15 p-10 mb-3">
+        <div class="col-12 p-2 mb-2">
+            <div class="p-2 border rounded bg-light">
                 <div class="form-group">
-                <label for="descricaoTarefa">Descrição da Tarefa:</label>
-                <textarea required class="form-control" id="descricaoTarefa" rows="3" placeholder="Descreva a tarefa..."></textarea>
-            </div>
-
-        <body class="container bg-primary">
-        <div class=" row align-items-start ">
-            <div class="col-5 p-3 mb-2">
-                    <div class="form-group">
-                        <label for="cmb_status">Status da tarefa:</label>
-                        <select class="form-control" id="cmb_status">
-                            <option>Selecione status da tarefa...</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
+                    <label for="cmb_titulo">Titulo da Tarefa:</label>
+                        <input type="text" required class="form-control" id="tituloTarefa" placeholder="Digite um título para a tarefa...">
+                </div>
+                <div class="form-group">
+                    <label for="cmb_cadasTarefa">Setor da tarefa:</label>
+                    <select class="form-control" id="cmb_cadasTarefa">
+                        <option>Escolha um setor para a tarefa...</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="descricaoTarefa">Descrição da Tarefa:</label>
+                    <textarea required class="form-control" id="descricaoTarefa" rows="3" placeholder="Descreva a tarefa..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="cmb_status">Status da tarefa:</label>
+                    <select class="form-control" id="cmb_status">
+                        <option>Selecione status da tarefa...</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cmb_titulo">Selecione a data para realização da tarefa:</label>
+                        <input type="date" name="Tarefa">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Cadastrar</button>
+                    <a href="listocorrencia" class="btn btn-danger" role="button">Cancelar</a>
                 </div>
             </div>
-       
-
-         <body class="container bg-primary">
-                    <div class="col-5 p-1 mb-1">
-                    <div class="form-group">
-                        <label for="cmb_titulo">Selecione a data para realização da tarefa:</label>
-                           <input type="date" name="Tarefa">
-                    </div>
-                    </div>
-           
-         <div class="form-group">
-                <button type="submit" class="btn btn-success">Cadastrar</button>
-                <a href="listocorrencia" class="btn btn-danger" role="button">Cancelar</a>
-            </div>
+        </div>
     </div>
 </div>	
 	
