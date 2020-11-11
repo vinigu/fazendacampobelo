@@ -24,6 +24,8 @@ Route.resource('apiUser', 'UserController').apiOnly();
 
 Route.on('/cadfunc').render('cad_func')
 
+Route.on('/cadtare').render('cad_tare')
+
 Route.on('/cadocorrencia').render('cadocorrencia')
 
 Route.on('listocorrencia').render('listocorrencia')
