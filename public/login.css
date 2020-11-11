@@ -5,11 +5,18 @@ body {
     width: 100%;
 }
 
-body {
+body.login {
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     background-image: url("/thumb-1920-361226.jpg");
     background-color: #220052;
+}
+
+body.cadastro {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    background: rgb(246, 253, 220);
+    background: linear-gradient(180deg, rgba(246, 253, 220, 1) 0%, rgba(46, 73, 38, 1) 100%);
 }
 
 * {
