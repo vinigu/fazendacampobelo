@@ -10,13 +10,14 @@
     <body class="container bg-primary">
         <div class="col-12 p-2 mb-2">
             <div class="p-2 border rounded bg-light">
+            <form action="post" id="formTarefa">
                 <div class="form-group">
-                    <label for="cmb_titulo">Titulo da Tarefa:</label>
+                    <label for="tituloTarefa">Titulo da Tarefa:</label>
                         <input type="text" required class="form-control" id="tituloTarefa" placeholder="Digite um título para a tarefa...">
                 </div>
                 <div class="form-group">
-                    <label for="cmb_cadasTarefa">Setor da tarefa:</label>
-                    <select class="form-control" id="cmb_cadasTarefa">
+                    <label for="setorTarefa">Setor da tarefa:</label>
+                    <select class="form-control" id="setorTarefa">
                         <option>Escolha um setor para a tarefa...</option>
                         <option>1</option>
                         <option>2</option>
@@ -30,8 +31,8 @@
                     <textarea required class="form-control" id="descricaoTarefa" rows="3" placeholder="Descreva a tarefa..."></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="cmb_status">Status da tarefa:</label>
-                    <select class="form-control" id="cmb_status">
+                    <label for="statusTarefa">Status da tarefa:</label>
+                    <select class="form-control" id="statusTarefa">
                         <option>Selecione status da tarefa...</option>
                         <option>1</option>
                         <option>2</option>
@@ -41,13 +42,14 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="cmb_titulo">Selecione a data para realização da tarefa:</label>
-                        <input type="date" name="Tarefa">
+                    <label for="dataTarefa">Selecione a data para realização da tarefa:</label>
+                        <input type="date" name="Tarefa" class="form-control" id="dataTarefa">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success">Cadastrar</button>
-                    <a href="listocorrencia" class="btn btn-danger" role="button">Cancelar</a>
+                    <a href="/painel" class="btn btn-danger" role="button">Cancelar</a>
                 </div>
+            </form>
             </div>
         </div>
     </div>
