@@ -114,6 +114,12 @@ form {
     background-color: white;
 }
 
+@media screen and (max-width:1400px) {
+    form {
+        top: 60%;
+    }
+}
+
 form img {
     margin-bottom: 0;
     border: 1px solid #418A36;
