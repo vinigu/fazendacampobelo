@@ -20,9 +20,7 @@ class OcorrenciaController {
   async index ({ request, response, view }) {
 
     const ocorrencia = await Ocorrencia.all()
-    return view.render('painel_principal', {
-      ocorrencias: ocorrencia.toJSON()
-    })
+    return ocorrencia.toJSON()
   }
 
   /**

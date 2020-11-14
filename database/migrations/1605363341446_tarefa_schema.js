@@ -3,22 +3,22 @@
 /** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use('Schema')
 
-class OcorrenciaSchema extends Schema {
+class TarefaSchema extends Schema {
   up () {
-    this.create('ocorrencias', (table) => {
+    this.create('tarefas', (table) => {
       table.increments()
       table.integer('cod_setor').unsigned().references('id').inTable('setor')
-      table.string('titulo_ocor').notNullable()
-      table.text('desc_ocor','longtext').notNullable()
-      table.date('data_ocor')
+      table.string('titulo_tarefa').notNullable()
+      table.text('desc_tarefa').notNullable()
+      table.date('data_tarefa')
       table.integer('cod_status').unsigned().references('id').inTable('statuses')
       table.timestamps()
     })
   }
 
   down () {
-    this.drop('ocorrencias')
+    this.drop('tarefas')
   }
 }
 
-module.exports = OcorrenciaSchema
+module.exports = TarefaSchema

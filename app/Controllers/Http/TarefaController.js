@@ -1,16 +1,18 @@
 'use strict'
 const Setor = use('App/Models/Setor');
+const Status = use('App/Models/Status');
+const Tarefa = use('App/Models/Tarefa');
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
 /**
- * Resourceful controller for interacting with setors
+ * Resourceful controller for interacting with tarefas
  */
-class SetorController {
+class TarefaController {
   /**
-   * Show a list of all setors.
-   * GET setors
+   * Show a list of all tarefas.
+   * GET tarefas
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -19,12 +21,16 @@ class SetorController {
    */
   async index ({ request, response, view }) {
     const setor = await Setor.all()
-    return setor.toJSON()
+    const status = await Status.all()
+    return view.render('cad_tare', {
+      setores: setor.toJSON(),
+      statuses: status.toJSON()
+    })
   }
 
   /**
-   * Render a form to be used for creating a new setor.
-   * GET setors/create
+   * Render a form to be used for creating a new tarefa.
+   * GET tarefas/create
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -35,24 +41,24 @@ class SetorController {
   }
 
   /**
-   * Create/save a new setor.
-   * POST setors
+   * Create/save a new tarefa.
+   * POST tarefas
    *
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
-    const data = request.only(["nome_setor", "ativo_sn" ]);
+    const data = request.only(["cod_setor", "titulo_tarefa", "desc_tarefa", "data_tarefa", "cod_status"]);
     
-    const setor = await Setor.create(data);
+    const tarefa = await Tarefa.create(data);
     
-    return setor;
+    return tarefa;
   }
 
   /**
-   * Display a single setor.
-   * GET setors/:id
+   * Display a single tarefa.
+   * GET tarefas/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -63,8 +69,8 @@ class SetorController {
   }
 
   /**
-   * Render a form to update an existing setor.
-   * GET setors/:id/edit
+   * Render a form to update an existing tarefa.
+   * GET tarefas/:id/edit
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -75,8 +81,8 @@ class SetorController {
   }
 
   /**
-   * Update setor details.
-   * PUT or PATCH setors/:id
+   * Update tarefa details.
+   * PUT or PATCH tarefas/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -86,8 +92,8 @@ class SetorController {
   }
 
   /**
-   * Delete a setor with id.
-   * DELETE setors/:id
+   * Delete a tarefa with id.
+   * DELETE tarefas/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -97,4 +103,4 @@ class SetorController {
   }
 }
 
-module.exports = SetorController
+module.exports = TarefaController

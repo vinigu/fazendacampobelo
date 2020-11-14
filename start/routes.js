@@ -24,14 +24,16 @@ Route.resource('apiUser', 'UserController').apiOnly();
 
 Route.on('/cadfunc').render('cad_func')
 
-Route.on('/cadtare').render('cad_tare')
-
 Route.on('/cadocorrencia').render('cadocorrencia')
 
 Route.on('listocorrencia').render('listocorrencia')
 
-Route.on('painel').render('painel_principal')
-
 Route.resource('status', 'StatusController').apiOnly()
 
 Route.resource('ocorrencia', 'OcorrenciaController').apiOnly()
+
+Route.resource('painel', 'PainelPrincipalController').apiOnly()
+
+Route.resource('setor', 'SetorController').apiOnly()
+
+Route.resource('tarefa', 'tarefaController').apiOnly()

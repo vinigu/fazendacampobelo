@@ -15,11 +15,10 @@
                     <div class="form-group">
                         <label for="cmb_setor">Setor:</label>
                         <select class="form-control" id="cmb_setor">
-                            <option>Celeiro</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                        <option>Visão Geral</option>
+                        @each(setor in setores)
+                            <option value="{{setor.id}}">{{setor.nome_setor}}</option>
+                        @endeach
                         </select>
                     </div>
                 </div>
@@ -34,13 +33,13 @@
 
             <div class="col-9 px-2 mb-2">
                 <div class="p-2 border rounded bg-light">
-                    <h2>Tarefas</h2>
+                    <h2>Ocorrências</h2>
                     <div class="list-group">
                         @each(ocorrencia in ocorrencias)
-                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
                                 <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1">{{ocorrencia.titulo_ocor}}</h5>
-                                <small>{{ocorrencia.status}}</small>
+                                <small>Status: {{ocorrencia.cod_status}}</small>
                                 </div>
                                 <p class="mb-1">{{ocorrencia.desc_ocor}}</p>
                                 <small>{{ocorrencia.data_ocor}}</small>
@@ -53,32 +52,18 @@
 
 <div class="col-9 px-2 mb-2">
                 <div class="p-2 border rounded bg-light">
-                    <h2>Ocorrências</h2>
+                    <h2>Tarefas</h2>
                     <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-                            <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">List group item heading</h5>
-                            <small>3 days ago</small>
-                            </div>
-                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                            <small>Donec id elit non mi porta.</small>
-                        </a>
+                     @each(tarefa in tarefas)
                         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                             <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">List group item heading</h5>
-                            <small class="text-muted">3 days ago</small>
+                            <h5 class="mb-1">{{tarefa.titulo_tarefa}}</h5>
+                            <small class="text-muted">{{tarefa.cod_status}}</small>
                             </div>
-                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                            <small class="text-muted">Donec id elit non mi porta.</small>
+                            <p class="mb-1">{{tarefa.desc_tarefa}}.</p>
+                            <small class="text-muted">{{tarefa.data_tarefa}}</small>
                         </a>
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                            <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">List group item heading</h5>
-                            <small class="text-muted">3 days ago</small>
-                            </div>
-                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                            <small class="text-muted">Donec id elit non mi porta.</small>
-                        </a>
+                    @endeach
                         </div>
                 </div>
             </div>
