@@ -10,36 +10,53 @@
     <body class="container bg-primary">
         <div class="col-12 p-2 mb-2">
             <div class="p-2 border rounded bg-light">
-            <form action="tarefa" method="post">
+            <form 
+            @if(tarefas.id != null)
+                action="tarefas/:{{tarefas.id}}" >
+                <input type="hidden" name="_method" value="PATCH">
+            @else
+                action="tarefas"  method="post">
+            @endif
+                <div>
+                    <input type="hidden" required class="form-control" name="id_tarefa" id="id_tarefa"  value="{{tarefas.id}}" readonly="true">
+                </div>
                 <div class="form-group">
                     <label for="tituloTarefa">Titulo da Tarefa:</label>
-                        <input type="text" required class="form-control" name="titulo_tarefa" id="titulo_tarefa" placeholder="Digite um título para a tarefa...">
+                        <input type="text" required class="form-control" name="titulo_tarefa" id="titulo_tarefa" placeholder="Digite um título para a tarefa..." value="{{tarefas.titulo_tarefa}}">
                 </div>
                 <div class="form-group">
                     <label for="setorTarefa">Setor da tarefa:</label>
                     <select class="form-control" name="cod_setor" id="cod_setor">
-                        <option>Selecionar...</option>
+                        <option >Selecionar</option>
                         @each(setor in setores)
-                            <option value="{{setor.id}}">{{setor.nome_setor}}</option>
+                            <option value="{{setor.id}}"
+                            @if(tarefas.cod_setor == setor.id)
+                                selected
+                            @endif
+                            >{{setor.nome_setor}}</option>
                         @endeach
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="descricaoTarefa">Descrição da Tarefa:</label>
-                    <textarea required class="form-control" name="desc_tarefa" id="desc_tarefa" rows="3" placeholder="Descreva a tarefa..."></textarea>
+                    <textarea required class="form-control" name="desc_tarefa" id="desc_tarefa" rows="3" placeholder="Descreva a tarefa...">{{tarefas.desc_tarefa}}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="statusTarefa">Status da tarefa:</label>
                     <select class="form-control" name="cod_status" id="cod_status">
                         <option>Selecionar...</option>
                         @each(status in statuses)
-                            <option value="{{status.id}}">{{status.status}}</option>
+                            <option value="{{status.id}}"
+                            @if(tarefas.cod_status == status.id)
+                                selected
+                            @endif
+                            >{{status.status}}</option>
                         @endeach
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="dataTarefa">Selecione a data para realização da tarefa:</label>
-                        <input type="date" name="data_tarefa" class="form-control" id="data_tarefa">
+                        <input type="date" name="data_tarefa" class="form-control" id="data_tarefa" valueAsDate="{{tarefas.data_tarefa}}">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success">Cadastrar</button>

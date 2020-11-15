@@ -36,4 +36,4 @@ Route.resource('painel', 'PainelPrincipalController').apiOnly()
 
 Route.resource('setor', 'SetorController').apiOnly()
 
-Route.resource('tarefa', 'tarefaController').apiOnly()
+Route.resource('tarefas', 'tarefaController').apiOnly()

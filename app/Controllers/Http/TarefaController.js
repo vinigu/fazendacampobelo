@@ -20,12 +20,24 @@ class TarefaController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
+    const setorrequest = request.only(["id_tarefa"]);
     const setor = await Setor.all()
     const status = await Status.all()
-    return view.render('cad_tare', {
-      setores: setor.toJSON(),
-      statuses: status.toJSON()
-    })
+    if(setorrequest.id_tarefa != null){
+      const tarefa = await Tarefa.findOrFail(setorrequest.id_tarefa);
+      return view.render('cad_tare', {
+        setores: setor.toJSON(),
+        statuses: status.toJSON(),
+        tarefas: tarefa.toJSON()
+      })
+    }else{
+      const tarefa = {"id":null,"cod_setor":null,"titulo_tarefa":"","desc_tarefa":"","data_tarefa":"","cod_status":null};
+      return view.render('cad_tare', {
+        setores: setor.toJSON(),
+        statuses: status.toJSON(),
+        tarefas: tarefa
+      })
+    }
   }
 
   /**
@@ -53,7 +65,7 @@ class TarefaController {
     
     const tarefa = await Tarefa.create(data);
     
-    return tarefa;
+    return response.redirect('painel')
   }
 
   /**
@@ -89,6 +101,13 @@ class TarefaController {
    * @param {Response} ctx.response
    */
   async update ({ params, request, response }) {
+    const tarefa = await Tarefa.findOrFail(params.id);
+    const data = request.only(["titulo_tarefa", "desc_tarefa", "data_tarefa", "cod_status"]);
+    
+    cliente.merge(data);
+    await cliente.save();
+
+    return response.redirect('/')
   }
 
   /**

@@ -26,8 +26,8 @@
             <div class="col-3 p-2 mb-2">
                 <div class="p-2 border rounded bg-light">
                     <h3>Cadastrar</h3>
-                    <button type="button" class="btn btn-primary" onClick="location.href='/cadocorrencia'">Ocorrência</button>
-                    <button type="button" class="btn btn-primary" onClick="location.href='/cadtare'">Tarefa</button>
+                    <button type="button" class="btn btn-primary" onClick="location.href='ocorrencia'">Ocorrência</button>
+                    <button type="button" class="btn btn-primary" onClick="location.href='tarefa'">Tarefa</button>
                 </div>
             </div>
 
@@ -55,7 +55,7 @@
                     <h2>Tarefas</h2>
                     <div class="list-group">
                      @each(tarefa in tarefas)
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <a href="tarefas?id_tarefa={{tarefa.id}}" class="list-group-item list-group-item-action flex-column align-items-start">
                             <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">{{tarefa.titulo_tarefa}}</h5>
                             <small class="text-muted">{{tarefa.cod_status}}</small>
