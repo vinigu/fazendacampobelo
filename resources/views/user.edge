@@ -20,15 +20,17 @@
 
   <body class="text-center cadastro">
    @include('header')
-    <form class="form-signin">
+    <form class="form-signin" action={{route('register')}} method="post">
       <img class="mb-4" src="./logo-fofo.png" alt="" width="150" height="150">
       <h1 class="h3 mb-3 font-weight-normal">Cadastro</h1>
       <label for="inputEmail" class="sr-only">Seu nome</label>
-      <input type="text" id="inputNome" class="form-control" placeholder="Seu Nome" required="" autofocus="">
+      <input type="text" id="inputNome" class="form-control" placeholder="Seu Nome" required="required" name="username" autofocus="">
       <label for="inputEmail" class="sr-only">Seu e-mail</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" name="email" autofocus="">
       <label for="inputPassword" class="sr-only">Sua senha</label>
-      <input type="text" id="inputPassword" class="form-control" placeholder="Password" required="">
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required="required">
+      <input style="display:none;" type="number" id="inputPassword" class="form-control" placeholder="Password" name="permissao" required="required" value="1">
+
       <button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button>
       <p class="mt-5 mb-3 text-muted">© 2020 -2020</p>
     </form>

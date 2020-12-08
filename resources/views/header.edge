@@ -3,18 +3,7 @@
     <img src="./header-logo.png" class="img-logo"/>
   </div>
   <ul>
-    <li>
-      <a href="/" class="content-link">
-        Login
-      </a>
-      <div class="icon-styled"></div>
-    </li>
-    <li>
-      <a href="/user" class="content-link">
-        Usuario
-      </a>
-      <div class="icon-styled"></div>
-    </li>
+    @loggedIn
     <li>
       <a href="/cadfunc" class="content-link">
         Cadastro Funcionário
@@ -33,5 +22,19 @@
       </a>
       <div class="icon-styled"></div>
     </li>
+    @else
+    <li>
+      <a href="/" class="content-link">
+        Login
+      </a>
+      <div class="icon-styled"></div>
+    </li>
+    <li>
+      <a href="/user" class="content-link">
+        Usuario
+      </a>
+      <div class="icon-styled"></div>
+    </li>
+    @endloggedIn
   </ul>
 </header>
