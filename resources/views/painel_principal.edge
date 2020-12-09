@@ -6,10 +6,12 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
         <title>Painel Principal</title>
-        {{ style('') }}
+        {{ style('login') }}
+        {{ style('header') }}
     </head>
-    <body class="container bg-primary">
-        <div class=" row align-items-start ">
+    <body class="container bg-primary login">
+        @include('header')
+        <div class=" row align-items-start " style="padding-top: 100px;">
             <div class="col-9 p-2 mb-2">
                 <div class="p-2 border rounded bg-light">
                     <div class="form-group">
@@ -27,7 +29,7 @@
                 <div class="p-2 border rounded bg-light">
                     <h3>Cadastrar</h3>
                     <button type="button" class="btn btn-primary" onClick="location.href='ocorrencia'">Ocorrência</button>
-                    <button type="button" class="btn btn-primary" onClick="location.href='tarefa'">Tarefa</button>
+                    <button type="button" class="btn btn-primary" onClick="location.href='tarefas'">Tarefa</button>
                 </div>
             </div>
 
@@ -39,7 +41,7 @@
                             <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
                                 <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1">{{ocorrencia.titulo_ocor}}</h5>
-                                <small>Status: {{ocorrencia.cod_status}}</small>
+                                <small>{{ocorrencia.cod_status}}</small>
                                 </div>
                                 <p class="mb-1">{{ocorrencia.desc_ocor}}</p>
                                 <small>{{ocorrencia.data_ocor}}</small>
@@ -50,7 +52,7 @@
             </div>
 
 
-<div class="col-9 px-2 mb-2">
+            <div class="col-9 px-2 mb-2">
                 <div class="p-2 border rounded bg-light">
                     <h2>Tarefas</h2>
                     <div class="list-group">

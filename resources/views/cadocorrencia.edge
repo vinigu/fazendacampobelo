@@ -14,33 +14,43 @@
     <body class="bg-primary login">
       @include('header')
 
-                    <form action="post" id="formOcorrencia">
+                    <form action="ocorrencia" method="post" id="formOcorrencia">
                         <div class="form-group">
-                            <label for="tituloOcorrencia">Titulo da Ocorrência</label>
-                            <input type="text" required class="form-control" id="tituloOcorrencia" placeholder="Digite o título da ocorrência...">
+                            <label for="titulo_ocor">Titulo da Ocorrência</label>
+                            <input type="text" required class="form-control" name="titulo_ocor" placeholder="Digite o título da ocorrência...">
                         </div>
                         <div class="form-group">
-                            <label for="descricaoOcorrencia">Descrição da Ocorrência</label>
-                            <textarea required class="form-control" id="descricaoOcorrencia" rows="3" placeholder="Descreva a ocorrência..."></textarea>
+                            <label for="desc_ocor">Descrição da Ocorrência</label>
+                            <textarea required class="form-control" name="desc_ocor" rows="3" placeholder="Descreva a ocorrência..."></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="dataOcorrencia">Data da Ocorrência</label>
-                            <input type="date" required class="form-control" id="dataOcorrencia">
+                            <label for="data_ocor">Data da Ocorrência</label>
+                            <input type="date" required class="form-control" name="data_ocor">
                         </div>
                         <div class="form-group">
-                            <label for="setorOcorrencia">Setor da Ocorrência</label>
-                            <select class="form-control" id="setorOcorrencia" required>
-                              <option value="1">Horta</option>
-                              <option value="2">Celeiro</option>
+                            <label for="setor_ocor">Setor da Ocorrência</label>
+                            <select class="form-control" name="cod_setor" id="cod_setor">
+                            <option >Selecionar</option>
+                                @each(setor in setores)
+                                    <option value="{{setor.id}}"
+                                    @if(tarefas.cod_setor == setor.id)
+                                        selected
+                                    @endif
+                                    >{{setor.nome_setor}}</option>
+                                @endeach
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="statusOcorrencia">Status da Ocorrência</label>
-                            <select class="form-control" id="statusOcorrencia" required>
-                                <option value="1">Em analise</option>
-                                <option value="2">Em desenvolvimento</option>
-                                <option value="3">Feito</option>
-                                <option value="4">Erro</option>
+                            <label for="status">Status da Ocorrência</label>
+                            <select class="form-control" name="cod_status" id="cod_status">
+                            <option>Selecionar...</option>
+                                @each(status in statuses)
+                                    <option value="{{status.id}}"
+                                    @if(tarefas.cod_status == status.id)
+                                        selected
+                                    @endif
+                                    >{{status.status}}</option>
+                                @endeach
                             </select>
                         </div>
                         <div class="form-group">

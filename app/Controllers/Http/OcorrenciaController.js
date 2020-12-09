@@ -1,5 +1,7 @@
 'use strict'
 const Ocorrencia = use('App/Models/Ocorrencia');
+const Setor = use('App/Models/Setor');
+const Status = use('App/Models/Status');
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
@@ -19,8 +21,24 @@ class OcorrenciaController {
    */
   async index ({ request, response, view }) {
 
-    const ocorrencia = await Ocorrencia.all()
-    return ocorrencia.toJSON()
+    const ocorrequest = request.only(["id_ocorrencia"]);
+    const setor = await Setor.all()
+    const status = await Status.all()
+    if(ocorrequest.id_ocorrencia != null){
+      const ocorrencia = await Ocorrencia.findOrFail(ocorrequest.id_ocorrencia);
+      return view.render('cadocorrencia', {
+        setores: setor.toJSON(),
+        statuses: status.toJSON(),
+        ocorrencias: ocorrencia.toJSON()
+      })
+    }else{
+      const ocorrencia = {"id":null,"cod_setor":null,"titulo_ocor":"","desc_ocor":"","data_ocor":"","status":null};
+      return view.render('cadocorrencia', {
+        setores: setor.toJSON(),
+        statuses: status.toJSON(),
+        ocorrencias: ocorrencia
+      })
+    }
   }
 
   /**
@@ -44,11 +62,11 @@ class OcorrenciaController {
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
-    const data = request.only(["cod_setor", "titulo_ocor", "desc_ocor", "data_ocor", "status", ]);
-    
+    const data = request.only(["cod_setor", "titulo_ocor", "desc_ocor", "data_ocor", "cod_status" ]);
+     
     const ocorrencia = await Ocorrencia.create(data);
     
-    return ocorrencia;
+    return response.redirect('painel')
   }
 
   /**
