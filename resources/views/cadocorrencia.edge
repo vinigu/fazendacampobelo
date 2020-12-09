@@ -4,13 +4,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
+        {{ style('login') }}
+        {{ style('header') }}
         <title>Cadastro de Ocorrência</title>
     </head>
-    <body class="container bg-primary">
-        <div class="row align-items-start ">
-            <div class="col-12 p-2 mb-2">
-                <div class="p-2 border rounded bg-light">
+
+
+
+    <body class="bg-primary login">
+      @include('header')
+
                     <form action="post" id="formOcorrencia">
                         <div class="form-group">
                             <label for="tituloOcorrencia">Titulo da Ocorrência</label>
@@ -27,13 +30,17 @@
                         <div class="form-group">
                             <label for="setorOcorrencia">Setor da Ocorrência</label>
                             <select class="form-control" id="setorOcorrencia" required>
-                                <option value="valorbd">texto bd</option>
+                              <option value="1">Horta</option>
+                              <option value="2">Celeiro</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="statusOcorrencia">Status da Ocorrência</label>
                             <select class="form-control" id="statusOcorrencia" required>
-                                <option value="valorbd">texto bd</option>
+                                <option value="1">Em analise</option>
+                                <option value="2">Em desenvolvimento</option>
+                                <option value="3">Feito</option>
+                                <option value="4">Erro</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -41,8 +48,6 @@
                             <a href="ocorrencia" class="btn btn-danger" role="button">Cancelar</a>
                         </div>
                     </form>
-                </div>
-            </div>
-        </div>
+
     </body>
 </html>
